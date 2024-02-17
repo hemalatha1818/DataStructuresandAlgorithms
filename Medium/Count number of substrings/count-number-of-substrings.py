@@ -5,13 +5,19 @@ class Solution:
         i=0
         j=0
         ans=0
-        d={}
+        c=0
+        d=[0]*26
         for i in range(len(s)):
-            d[s[i]]=d.get(s[i],0)+1
-            while(len(d)>k):
-                d[s[j]]-=1
-                if d[s[j]]==0:
-                    d.pop(s[j])
+            if d[ord(s[i])-ord('a')]>0:
+                d[ord(s[i])-ord('a')]+=1
+            else:
+                d[ord(s[i])-ord('a')]=1
+                c+=1
+            while(c>k):
+                d[ord(s[j])-ord('a')]-=1
+               
+                if d[ord(s[j])-ord('a')]==0:
+                    c-=1
                 j+=1
            
             ans=ans+i-j+1
