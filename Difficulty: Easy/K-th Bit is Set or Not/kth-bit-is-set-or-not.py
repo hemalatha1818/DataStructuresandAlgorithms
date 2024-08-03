@@ -14,9 +14,8 @@ class Solution:
     #Function to check if Kth bit is set or not.
     def checkKthBit(self, n,k):
         #Your code here
-        for i in range(128,-1,-1):
-            if i==k and (n>>i)&1==1:
-                return True
+        if (n>>k)&1==1:
+            return True
         return False
 
 #{ 
